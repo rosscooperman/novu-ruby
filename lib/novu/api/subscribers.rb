@@ -87,7 +87,8 @@ module Novu
         delete("/subscribers/#{subscriber_id}")
       end
 
-      # Update subscriber credentials from the Novu platform. Subscriber credentials associated to the delivery methods such as slack and push tokens.
+      # Update subscriber credentials from the Novu platform. Subscriber credentials
+      # associated to the delivery methods such as slack and push tokens.
       #
       # @pathparams:
       # @param `subscriber_id` [String] The ID of the subscriber to update credentials.
@@ -103,7 +104,8 @@ module Novu
         put("/subscribers/#{subscriber_id}/credentials", body: body)
       end
 
-      # Upsert subscriber credentials from the Novu platform. Subscriber credentials associated to the delivery methods such as slack and push tokens.
+      # Upsert subscriber credentials from the Novu platform. Subscriber credentials
+      # associated to the delivery methods such as slack and push tokens.
       #
       # @pathparams:
       # @param `subscriber_id` [String] The ID of the subscriber to update credentials.

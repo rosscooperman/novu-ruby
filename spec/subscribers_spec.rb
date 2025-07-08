@@ -160,7 +160,7 @@ RSpec.describe Novu::Api::Subscribers do
   end
 
   describe "#upsert_subscriber_credentials" do
-    it "appends the subscriber credentials" do
+    it "upserts the subscriber credentials" do
       body = {
         providerId: "slack",
         credentials: { token: "new-slack-token" }
