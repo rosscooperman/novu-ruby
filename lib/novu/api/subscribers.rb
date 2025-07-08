@@ -103,6 +103,22 @@ module Novu
         put("/subscribers/#{subscriber_id}/credentials", body: body)
       end
 
+      # Upsert subscriber credentials from the Novu platform. Subscriber credentials associated to the delivery methods such as slack and push tokens.
+      #
+      # @pathparams:
+      # @param `subscriber_id` [String] The ID of the subscriber to update credentials.
+      #
+      # @bodyparams:
+      # @param `providerId` [String] The provider identifier for the credentials
+      # @param `credentials` [Hash] Credentials payload for the specified provider
+      #
+      # @return [Hash] Hash of updated subscriber credentials entity
+      # @return [number] status
+      #  - Returns 200 if the subscriber credentials has been updated correctly.
+      def upsert_subscriber_credentials(subscriber_id, body)
+        patch("/subscribers/#{subscriber_id}/credentials", body: body)
+      end
+
       # Delete subscriber credentials by providerId
       # Delete subscriber credentials such as slack and expo tokens.
       #

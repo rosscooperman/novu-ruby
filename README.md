@@ -665,7 +665,17 @@ body = {
 }
 client.update_subscriber_credentials('<insert-subscriber-id>', body)
 ```
+- Upsert (append) subscriber credentials: `upsert_subscriber_credentials(subscriber_id, body)`
 
+```ruby
+body = {
+    'providerId' => '<insert-provider-id>',
+    'credentials' => {
+        # Insert all fields here
+    }
+}
+client.upsert_subscriber_credentials('<insert-subscriber-id>', body)
+`
 - Delete subscriber credentials by providerId: `delete_subscriber_credentials(subscriberId, providerId)`
 
 ```ruby

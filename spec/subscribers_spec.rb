@@ -159,6 +159,28 @@ RSpec.describe Novu::Api::Subscribers do
     end
   end
 
+  describe "#upsert_subscriber_credentials" do
+    it "appends the subscriber credentials" do
+      body = {
+        providerId: "slack",
+        credentials: { token: "new-slack-token" }
+      }.to_json
+
+      response_body = {
+        _id: "63f71b3ef067290fa669106d"
+      }.to_json
+
+      stub_request(:patch, "#{base_uri}/subscribers/#{subscriber_id}/credentials")
+        .with(body: body)
+        .to_return(status: 200, body: response_body)
+
+      result = client.upsert_subscriber_credentials(subscriber_id, body)
+
+      expect(result.body).to eq(response_body)
+      expect(result.code).to eq(200)
+    end
+  end
+
   describe "#delete_subscriber_credentials" do
     it "#Delete subscriber credentials such as slack and expo tokens." do
       providerId = 'slack'
